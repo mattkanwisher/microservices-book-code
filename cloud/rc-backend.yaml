@@ -1,0 +1,30 @@
+---
+apiVersion: "v1"
+kind: ReplicationController
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: "asia.gcr.io/microservicesbook-986/whoareyou"
+        name: backend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SERVICE_NAME
+          value: "backend"
+        - name: ADDR
+          value: ":8080"
+
+

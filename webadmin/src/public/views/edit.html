@@ -1,0 +1,44 @@
+<!-- edit.html -->
+<div class="row">
+    <div class="col-xs-6"><h2>Update user</h2></div>
+    <div class="col-xs-6 text-right" style="margin-top:30px;"><a href="/logout">Logout</a></div>
+</div>
+<div>
+  <h3>User Information</h3>
+  <div class="alert alert-danger" role="alert" ng-show="infoError" >{{infoError}}</div>
+  <form ng-submit="infoUpdate()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" ng-model="info.name">
+      <p class="text-danger">{{infoValidate.name}}</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" name="email" ng-model="info.email">
+      <p class="text-danger">{{infoValidate.email}}</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a class="btn btn-default" href="/#/">Back</a>
+  </form>
+</div>
+
+<div>
+  <h3>Change Password</h3>
+  <div class="alert alert-danger" role="alert" ng-show="pwdError" >{{pwdError}}</div>
+  <form ng-submit="pwdUpdate()">
+    <div class="form-group">
+      <label for="email">Old Password</label>
+      <input type="password" class="form-control" id="old_password" name="old_password" ng-model="pwd.old_password">
+      <p class="text-danger">{{pwdValidate.old_password}}</p>
+    </div>
+    <div class="form-group">
+      <label for="email">New Password</label>
+      <input type="password" class="form-control" id="password" name="password" ng-model="pwd.password">
+      <p class="text-danger">{{pwdValidate.password}}</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Change Password</button>
+    <a class="btn btn-default" href="/#/">Back</a>
+  </form>
+</div>

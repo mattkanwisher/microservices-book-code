@@ -1,0 +1,36 @@
+<!-- register.html -->
+<div style="margin:10% auto 0 auto;width:300px;">
+  [[if .Error]]
+  <div class="alert alert-danger" role="alert">[[.Error]]</div>
+  [[end]]
+  <form method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="[[.Name]]">
+      <p class="text-danger">[[.Validate.name]]</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" name="email" value="[[.Email]]">
+      <p class="text-danger">[[.Validate.email]]</p>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" value="[[.Username]]">
+      <p class="text-danger">[[.Validate.username]]</p>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" value="">
+      <p class="text-danger">[[.Validate.password]]</p>
+    </div>
+    <div class="form-group">
+      <label for="confirmpassword">Confirm Password</label>
+      <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" value="">
+      <p class="text-danger">[[.Validate.confirm_password]]</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    <a class="btn btn-default" href="/login">Back</a>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+<!-- list.html -->
+<div class="row">
+    <div class="col-xs-6"><h2>Users</h2></div>
+    <div class="col-xs-6 text-right" style="margin-top:30px;"><a href="/logout">Logout</a></div>
+</div>
+<table class="table table-hover">
+
+  <a href="#/new" class="btn btn-primary">Create</a>
+
+  <thead>
+      <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Created At</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="user in users">
+        <td>{{user.username}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.created_at}}</td>
+        <td><a ng-href="/#/view/{{user.id}}">View</a></td>
+        <td><a ng-href="/#/edit/{{user.id}}">Edit</a></td>
+        <td><a href ng-click="delete($index, user.id)">Delete</a></td>
+      </tr>
+  </tbody>
+</table>

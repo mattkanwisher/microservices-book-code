@@ -1,0 +1,30 @@
+<!-- view.html -->
+<div class="row">
+    <div class="col-xs-6"><h2>User</h2></div>
+    <div class="col-xs-6 text-right" style="margin-top:30px;"><a href="/logout">Logout</a></div>
+</div>
+<div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{user.name}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{user.email}}</td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td>{{user.username}}</td>
+      </tr>
+      <tr>
+        <td>Created At</td>
+        <td>{{user.created_at}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <a class="btn btn-default" href="/#/">Back</a>
+  </div>
+</div>

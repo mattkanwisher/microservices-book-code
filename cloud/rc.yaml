@@ -1,0 +1,30 @@
+---
+apiVersion: "v1"
+kind: ReplicationController
+metadata:
+  name: whoareyou
+  labels:
+    app: whoareyou
+spec:
+  replicas: 3
+  selector:
+    app: whoareyou
+  template:
+    metadata:
+      labels:
+        app: whoareyou
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: "asia.gcr.io/microservicesbook-123/whoareyou"
+        name: whoareyou
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SERVICE_NAME
+          value: "whoareyou"
+        - name: ADDR
+          value: ":8080"
+
+

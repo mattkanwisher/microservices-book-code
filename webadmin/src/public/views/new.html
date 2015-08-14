@@ -1,0 +1,33 @@
+<!-- new.html -->
+<div class="row">
+    <div class="col-xs-6"><h2>Create new user</h2></div>
+    <div class="col-xs-6 text-right" style="margin-top:30px;"><a href="/logout">Logout</a></div>
+</div>
+<div>
+  <div class="alert alert-danger" role="alert" ng-show="error" >{{error}}</div>
+  <form ng-submit="create()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" ng-model="user.name">
+      <p class="text-danger">{{validate.name}}</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" name="email" ng-model="user.email">
+      <p class="text-danger">{{validate.email}}</p>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" ng-model="user.username">
+      <p class="text-danger">{{validate.username}}</p>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" ng-model="user.password">
+      <p class="text-danger">{{validate.password}}</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a class="btn btn-default" href="/#/">Back</a>
+  </form>
+</div>

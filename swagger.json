@@ -1,0 +1,156 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/replies": {
+      "get": {
+        "tags": [
+          "replies"
+        ],
+        "description": "Get list of replies for a thread.",
+        "operationId": "getReplies",
+        "parameters": [
+          {
+            "name": "thread",
+            "in": "query",
+            "description": "Thread's array index (Id value returned during creation.)",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/api_server.Reply"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "replies"
+        ],
+        "description": "Create a new reply to an existing thread.",
+        "operationId": "postReply",
+        "parameters": [
+          {
+            "name": "thread",
+            "in": "query",
+            "description": "Thread's array index (or Id value returned during creation.)",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "reply",
+            "in": "body",
+            "description": "The reply to post.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/api_server.Reply"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/api_server.Reply"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/threads": {
+      "get": {
+        "tags": [
+          "threads"
+        ],
+        "description": "Get list of threads.",
+        "operationId": "getThreads",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/api_server.Thread"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "threads"
+        ],
+        "description": "Create a new thread.",
+        "operationId": "postThread",
+        "parameters": [
+          {
+            "name": "thread",
+            "in": "body",
+            "description": "The thread to post.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/api_server.Thread"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/api_server.Result"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "api_server.Reply": {
+      "properties": {
+        "Content": {
+          "type": "string"
+        }
+      }
+    },
+    "api_server.Result": {
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "api_server.Thread": {
+      "properties": {
+        "Message": {
+          "type": "string"
+        },
+        "Replies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/api_server.Reply"
+          }
+        },
+        "Title": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
